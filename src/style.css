@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  width: 800px;
+  height: 600px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 80px 1fr 100px;
+  grid-gap: 1rem;
+}
+
+.header {
+  grid-row: 1 / 2;
+  grid-column: 2 / 6;
+  font-size: 2.4em;
+  font-weight: bold;
+}
+
+.content {
+  grid-row: 2 / 3;
+  grid-column: 2 / 7;
+}

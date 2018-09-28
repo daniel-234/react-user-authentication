@@ -10,7 +10,8 @@ To build this project I will follow the [wonderful course](https://frontendmaste
 
 ## Getting Started
 
-TODO 
+To install this application you can (fork and) download it and then open the file `index.html` from your browser window. 
+There's no other things to do at this point, as this app started as simple as possible, following the above philosophy.
 
 ## Built With
 
