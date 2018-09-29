@@ -1,26 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  /* Display the body content using CSS Flexbox. */
   display: flex;
+  /* Center content vertically. */
   justify-content: center;
 }
 
 .container {
+  /* 
+   * The container that holds the entire CSS grid.
+   * In this app both the header and the content. 
+   */
   display: grid;
   justify-content: center;
   width: 800px;
   height: 600px;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  /* 
+   * Define the number of columns and rows for the grid. 
+   * The columns grid is divided into 7 equal fractions. 
+   */
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 80px 1fr 100px;
+  /* The space between rows and columns in a grid. */
   grid-gap: 1rem;
 }
 
 .header {
+  /* 
+   * Shorthand for grid-row-start and grid-row-end. 
+   * Values: <start-line> / <end-line>.
+   * Same applies for grid-column.
+   */
   grid-row: 1 / 2;
   grid-column: 2 / 6;
+  padding-left: 0.25em;
   font-size: 2.4em;
   font-weight: bold;
+  color: #444;
 }
 
 .content {
   grid-row: 2 / 3;
   grid-column: 2 / 7;
+  padding: 1em;
+  background-color: #444;
+  color: #fff;
+  border-radius: 1em;
 }
