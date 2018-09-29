@@ -1,5 +1,7 @@
 # React User Authentication
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 This simple application is a side project to create a user authentication application with React. 
 We will rebuild [a project](https://github.com/chenkie/react-user-authentication) developed by Ryan Chenkie for a [course](https://frontendmasters.com/courses/secure-auth-jwt/) on JWT on Frontend Masters. 
 This frontend application will rely on an API built by following that same course, which can be found in [this repository](https://github.com/daniel-234/user-authentication-api). 
@@ -31,3 +33,9 @@ The full courses based on these repositories can be found on [Frontend Masters](
 This project is intended for learning purposes only. Much of it will reproduce code found in the repositories listed in [Notes](#notes), so if you intend to use it, please refer to their original licenses and give appropriate credit to the respective authors.
 
 ## Acknowledgments
+
+- [Mozilla Developers Playgroud - CSS grid](https://mozilladevelopers.github.io/playground/css-grid)
+- [Rachel Andrews - Grid by Example](https://gridbyexample.com/)
+- [CSS Tricks - A complete guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [39Digits - Configure Prettier and ESLint in Visual Studio Code](https://www.39digits.com/configure-prettier-and-eslint-in-visual-studio-code/)
+- [39Digits - Automatically format your JavaScript commits using Prettier, Husky and lint-staged](https://www.39digits.com/automatically-format-your-javascript-commits-using-prettier-and-husky/)
