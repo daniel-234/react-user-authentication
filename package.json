@@ -2,7 +2,6 @@
   "name": "react-user-authentication",
   "version": "1.0.0",
   "description": "A user authentication application built with React and JWT (Jason Web Tokens)",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"**/*.{js,jsx}\"",
@@ -31,6 +30,12 @@
     "eslint-plugin-prettier": "^2.7.0",
     "husky": "^1.0.1",
     "lint-staged": "^7.3.0",
-    "prettier": "^1.14.3"
+    "prettier": "^1.14.3",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
   }
 }

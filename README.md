@@ -2,7 +2,7 @@
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-This simple application is a side project to create a user authentication application with React. 
+This is a side project to create a user authentication application with React. 
 We will rebuild [a project](https://github.com/chenkie/react-user-authentication) developed by Ryan Chenkie for a [course](https://frontendmasters.com/courses/secure-auth-jwt/) on JWT on Frontend Masters. 
 This frontend application will rely on an API built by following that same course, which can be found in [this repository](https://github.com/daniel-234/user-authentication-api). 
 
@@ -12,8 +12,9 @@ To build this project I will follow the [wonderful course](https://frontendmaste
 
 ## Getting Started
 
-To install this application you can (fork and) download it and then open the file `index.html` from your browser window. 
-There's no other things to do at this point, as this app started as simple as possible, following the above philosophy.
+To run this application, you need to have Node.js installed. If you don't have it, please go to the [Node.js](https://nodejs.org/en/) website, download and install it. To install this application you can (fork and) download it and then run the command `npm install` from your terminal. After the install process has finished, run the command `npx webpack src/App.js` from your terminal. This will bundle your files and translate the ES6 imports into ES5 syntax, that can be run by all browser engines. 
+
+Now you can  open the file `index.html` from your browser window. There's no other things to do at this point.
 
 ## Built With
 
