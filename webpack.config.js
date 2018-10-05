@@ -8,6 +8,9 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js"
   },
+  devServer: {
+    publicPath: "/dist/"
+  },
   resolve: {
     extensions: [".js", ".jsx", ".json"]
   },
@@ -18,6 +21,12 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        enforce: "pre",
+        test: /\.jsx?$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/
+      },
       {
         test: /\.jsx?$/,
         loader: "babel-loader"

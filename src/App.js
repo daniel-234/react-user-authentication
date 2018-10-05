@@ -3,14 +3,12 @@ import ReactDOM from "react-dom";
 import Article from "./Article";
 
 const App = () => {
-  return React.createElement("div", { className: "container" }, [
-    React.createElement(
-      "div",
-      { className: "header" },
-      "React User Authentication"
-    ),
-    React.createElement(Article)
-  ]);
+  return (
+    <div className="container">
+      <div className="header">{"React User Authentication"}</div>
+      <Article />
+    </div>
+  );
 };
 
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
