@@ -41,6 +41,10 @@ To run this app, type `npm run webpack-dev-server` from the command line and ope
 This application has been built based on these repositories: [React User Authentication](https://github.com/chenkie/react-user-authentication), [Complete Intro to React v4](https://btholt.github.io/complete-intro-to-react-v4/) and [Testing Workshop](https://github.com/kentcdodds/testing-workshop).
 The full courses based on these repositories can be found on [Frontend Masters](https://frontendmasters.com/).
 
+### Notes on ESLint rules
+
+The ESLint configuration rules used in this project are the ones suggested by Brian Holt in his workshop notes: [ESLint and React configuration](https://btholt.github.io/complete-intro-to-react-v4/jsx/#eslint--react). 
+
 ## License
 
 This project is intended for learning purposes only. Much of it will reproduce code found in the repositories listed in [Notes](#notes), so if you intend to use it, please refer to their original licenses and give appropriate credit to the respective authors.
