@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot 1`] = `
+<div
+  className="content"
+>
+  <h1>
+    Welcome!
+  </h1>
+  <p>
+    This app is an exercise to demonstrate how to add authentication to a React app.
+  </p>
+</div>
+`;

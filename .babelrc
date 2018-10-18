@@ -4,11 +4,19 @@
     [
       "@babel/preset-env", {
       "targets": {
-        "browsers": "last 2 versions"
+        "browsers": "last 2 versions",
+        "esmodules": false
       },
       "loose": true,
       "modules": false
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
 }

@@ -26,7 +26,7 @@ With the addition of a configuration file for Webpack, there's no need to specif
 At this point I've added the Webpack development server, that conveniently provides live reloading. It serves its assets from the configured public path property, so a minor refactoring has been done on `index.html` to load `main.js` file from that folder, instead of doing it from the home page.  
 The bundled file referenced inside the home page now has a relative path that points to the folder where the development server accesses the webpack assets. That made the two script commands `build` and `watch` not useful anymore, as we had to manually open the `index.html`. So they were removed in this commit. 
 
-To run this app, type `npm run webpack-dev-server` from the command line and open your browser at `localhost:8080` to see it live.  
+Run the app by typing `npm run webpack-dev-server` from the command line and open your browser at `localhost:8080` to see it live.  
 
 ## Built With
 
