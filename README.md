@@ -1,6 +1,7 @@
 # React User Authentication
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
 This is a side project to create a user authentication application with React. 
 We will rebuild [a project](https://github.com/chenkie/react-user-authentication) developed by Ryan Chenkie for a [course](https://frontendmasters.com/courses/secure-auth-jwt/) on JWT on Frontend Masters. 
@@ -31,6 +32,8 @@ Run the app by typing `npm run webpack-dev-server` from the command line and ope
 ## Built With
 
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [Jest](https://jestjs.io/en/) - Delightful JavaScript Testing
+- [Webpack](https://webpack.js.org/) - A static module bundler for modern JavaScript applications
 
 ## Author
 

@@ -6,7 +6,10 @@
     "lint": "eslint **/*.{js,jsx} --quiet",
     "format": "prettier --write \"**/*.{js,jsx}\"",
     "precommit": "lint-staged",
-    "start:dev": "webpack-dev-server"
+    "start:dev": "webpack-dev-server",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --silent --coverage"
   },
   "lint-staged": {
     "*.{js,jsx,json}": [
