@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Article from "./Article";
+import Header from "./Header";
 
 const App = () => {
   return (
     <div className="container">
-      <div className="header">{"React User Authentication"}</div>
+      <Header />
       <Article />
     </div>
   );
