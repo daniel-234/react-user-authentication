@@ -12,6 +12,9 @@
       }
     ]
   ],
+  "plugins": [
+    "react-hot-loader/babel"
+  ],
   "env": {
     "test": {
       "plugins": [

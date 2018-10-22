@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Article from "./Article";
 import Header from "./Header";
 
@@ -12,4 +11,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+export default App;

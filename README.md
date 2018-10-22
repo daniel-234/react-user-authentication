@@ -1,5 +1,6 @@
 # React User Authentication
 
+[![Build status](https://ci.appveyor.com/api/projects/status/oeg89gldjylp73qc?svg=true)](https://ci.appveyor.com/project/daniel-234/react-user-authentication)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
@@ -27,7 +28,8 @@ With the addition of a configuration file for Webpack, there's no need to specif
 At this point I've added the Webpack development server, that conveniently provides live reloading. It serves its assets from the configured public path property, so a minor refactoring has been done on `index.html` to load `main.js` file from that folder, instead of doing it from the home page.  
 The bundled file referenced inside the home page now has a relative path that points to the folder where the development server accesses the webpack assets. That made the two script commands `build` and `watch` not useful anymore, as we had to manually open the `index.html`. So they were removed in this commit. 
 
-Run the app by typing `npm run webpack-dev-server` from the command line and open your browser at `localhost:8080` to see it live.  
+Run the app by <del>typing `npm run webpack-dev-server`</del> using the script command `npm run start:dev` from the command line and open your browser at `localhost:8080` to see it live. 
+Watch Webpack live update your output without you having to reload your browser window, while in development, after we added the Hot Module Replacement feature (and its plugins built for React). 
 
 ## Built With
 
@@ -54,6 +56,7 @@ This project is intended for learning purposes only. Much of it will reproduce c
 
 ## Acknowledgments
 
+- [Brian Holt - Complete Intro to React - older versions](https://btholt.github.io/complete-intro-to-react/)
 - [Mozilla Developers Playgroud - CSS grid](https://mozilladevelopers.github.io/playground/css-grid)
 - [Rachel Andrews - Grid by Example](https://gridbyexample.com/)
 - [CSS Tricks - A complete guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)

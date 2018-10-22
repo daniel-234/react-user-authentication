@@ -1,14 +1,22 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
   context: __dirname,
-  entry: "./src/App.js",
+  entry: [
+    "react-hot-loader/patch",
+    "webpack-dev-server/client?http://localhost:8080",
+    "webpack/hot/only-dev-server",
+    "./src/ClientApp.js"
+  ],
   devtool: "cheap-eval-source-map",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js"
+    filename: "main.js",
+    publicPath: "/dist/"
   },
   devServer: {
+    hot: true,
     publicPath: "/dist/"
   },
   resolve: {
@@ -19,6 +27,10 @@ module.exports = {
     reasons: true,
     chunks: true
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
+  ],
   module: {
     rules: [
       {
