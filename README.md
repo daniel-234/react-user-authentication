@@ -1,6 +1,7 @@
 # React User Authentication
 
 [![Build status](https://ci.appveyor.com/api/projects/status/oeg89gldjylp73qc?svg=true)](https://ci.appveyor.com/project/daniel-234/react-user-authentication)
+[![Build Status](https://travis-ci.org/daniel-234/react-user-authentication.svg?branch=master)](https://travis-ci.org/daniel-234/react-user-authentication)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
@@ -49,6 +50,13 @@ The full courses based on these repositories can be found on [Frontend Masters](
 ### Notes on ESLint rules
 
 The ESLint configuration rules used in this project are the ones suggested by Brian Holt in his workshop notes: [ESLint and React configuration](https://btholt.github.io/complete-intro-to-react-v4/jsx/#eslint--react). 
+
+### Continuous Integration
+
+This application uses two services for Continuous Integration:
+
+ - [Travis](https://ci.appveyor.com/project/daniel-234/react-user-authentication)
+ - [AppVeyor](https://ci.appveyor.com/project/daniel-234/user-authentication-api)
 
 ## License
 
