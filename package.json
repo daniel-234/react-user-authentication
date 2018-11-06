@@ -52,9 +52,10 @@
     "webpack-dev-server": "^3.1.9"
   },
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "merge": ">=1.2.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-hot-loader": "^4.3.11"
+    "react-hot-loader": "^4.3.12"
   }
 }

@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
+  mode: "development",
   context: __dirname,
   entry: [
     "react-hot-loader/patch",
@@ -17,7 +18,8 @@ module.exports = {
   },
   devServer: {
     hot: true,
-    publicPath: "/dist/"
+    publicPath: "/dist/",
+    historyApiFallback: true
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"]

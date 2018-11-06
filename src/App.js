@@ -1,13 +1,14 @@
 import React from "react";
-import Article from "./Article";
-import Header from "./Header";
+import { Router } from "@reach/router";
+import Home from "./components/Home";
+import Login from "./components/Login";
 
 const App = () => {
   return (
-    <div className="container">
-      <Header />
-      <Article />
-    </div>
+    <Router>
+      <Home path="/" />
+      <Login path="/login" />
+    </Router>
   );
 };
 
