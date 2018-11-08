@@ -1,4 +1,3 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from "react";
 import Header from "./Header";
 import {
@@ -7,11 +6,27 @@ import {
   NavLink,
   TabContent,
   TabPane,
-  Row,
-  Col
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Button
 } from "reactstrap";
+import classnames from "classnames";
 
 class Login extends Component {
+  state = {
+    activeTab: "1"
+  };
+
+  toggle = tab => {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
+  };
+
   render() {
     return (
       <div className="container">
@@ -19,19 +34,49 @@ class Login extends Component {
         <div className="content content-login">
           <Nav tabs>
             <NavItem>
-              <NavLink>Log In</NavLink>
+              <NavLink
+                className={classnames({ active: this.state.activeTab === "1" })}
+                onClick={() => {
+                  this.toggle("1");
+                }}
+              >
+                Log In
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>Sign Up</NavLink>
+              <NavLink
+                className={classnames({ active: this.state.activeTab === "2" })}
+                onClick={() => {
+                  this.toggle("2");
+                }}
+              >
+                Sign Up
+              </NavLink>
             </NavItem>
           </Nav>
-          <TabContent>
+          <TabContent className="tab-content">
             <TabPane>
-              <Row>
-                <Col>
-                  <h4>Log In content</h4>
-                </Col>
-              </Row>
+              <Form>
+                <FormGroup>
+                  <Label for="username">Username</Label>
+                  <Input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="username"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="password">Password</Label>
+                  <Input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="password"
+                  />
+                </FormGroup>
+                <Button>Submit</Button>
+              </Form>
             </TabPane>
           </TabContent>
         </div>

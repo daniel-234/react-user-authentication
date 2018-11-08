@@ -55,3 +55,7 @@ body {
   background-color: #fff;
   color: #444;
 }
+
+.tab-content {
+  margin-top: 1em;
+}

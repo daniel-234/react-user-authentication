@@ -4,9 +4,9 @@ exports[`Snapshot of the Article component 1`] = `
 <div
   className="content"
 >
-  <h1>
+  <h2>
     Welcome!
-  </h1>
+  </h2>
   <p>
     This app is an exercise to demonstrate how to add authentication to a React app.
   </p>
