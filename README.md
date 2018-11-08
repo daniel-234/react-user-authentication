@@ -31,6 +31,8 @@ Watch Webpack live update your output without you having to reload your browser 
 
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 - [Reach Router](https://github.com/reach/router) - Next generation routing for React
+- [Bootstrap 4](http://getbootstrap.com/) - Frontend component library
+- [reactstrap](https://reactstrap.github.io/) - Easy to use React Bootstrap 4 components
 - [Jest](https://jestjs.io/en/) - Delightful JavaScript Testing
 - [Webpack](https://webpack.js.org/) - A static module bundler for modern JavaScript applications
 
@@ -43,11 +45,16 @@ Watch Webpack live update your output without you having to reload your browser 
 This application has been built based on these repositories: [React User Authentication](https://github.com/chenkie/react-user-authentication), [Complete Intro to React v4](https://btholt.github.io/complete-intro-to-react-v4/) and [Testing Workshop](https://github.com/kentcdodds/testing-workshop).
 The full courses based on these repositories can be found on [Frontend Masters](https://frontendmasters.com/).
 
+### Styling
+
+This application uses Bootstrap 4 as a library for custom components. 
+Consider switching or using [Material-UI](https://material-ui.com/) to build React components that implement Google's Material Design.
+
 ### Notes on ESLint rules
 
 The ESLint configuration rules used in this project are the ones suggested by Brian Holt in his workshop notes: [ESLint and React configuration](https://btholt.github.io/complete-intro-to-react-v4/jsx/#eslint--react). 
 
-## Notes on Webpack (with focus on HMR and routing issues)
+### Notes on Webpack (with focus on HMR and routing issues)
 
 With the addition of a configuration file for Webpack, there's no need to specify manually an entry point or an output on the command line, as we already did that in that configuration file. 
 
