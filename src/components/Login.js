@@ -13,9 +13,12 @@ import {
   Button
 } from "reactstrap";
 import classnames from "classnames";
+import authService from "../utils/AuthService";
 
 class Login extends Component {
   state = {
+    username: "",
+    password: "",
     activeTab: "1"
   };
 
@@ -24,6 +27,30 @@ class Login extends Component {
       this.setState({
         activeTab: tab
       });
+    }
+  };
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  onSignupSubmit = event => {
+    // let msg;
+    event.preventDefault();
+    // eslint-disable-next-line no-console
+    console.log(this.state.username);
+    // eslint-disable-next-line no-console
+    console.log(this.state.password);
+    let { username, password } = this.state;
+    if (username && password) {
+      // msg = `username: ${username}, password: ${password}`;
+      authService()
+        .signup(username, password)
+        .then(result => {
+          // eslint-disable-next-line no-console
+          console.log(result.token);
+          authService().finishAuthentication(result.token);
+        });
     }
   };
 
@@ -54,25 +81,52 @@ class Login extends Component {
               </NavLink>
             </NavItem>
           </Nav>
-          <TabContent className="tab-content">
-            <TabPane>
-              <Form>
+          <TabContent activeTab={this.state.activeTab} className="tab-content">
+            <TabPane tabId="1">
+              <Form onSubmit={this.onSignupSubmit}>
                 <FormGroup>
-                  <Label for="username">Username</Label>
+                  <Label for="signin-username">Username</Label>
                   <Input
                     type="text"
                     name="username"
-                    id="username"
+                    id="signin-username"
                     placeholder="username"
+                    onChange={this.handleChange}
                   />
                 </FormGroup>
                 <FormGroup>
-                  <Label for="password">Password</Label>
+                  <Label for="signin-password">Password</Label>
                   <Input
                     type="password"
                     name="password"
-                    id="password"
+                    id="signin-password"
                     placeholder="password"
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+                <Button type="submit">Submit</Button>
+              </Form>
+            </TabPane>
+            <TabPane tabId="2">
+              <Form onSubmit={this.onSignupSubmit}>
+                <FormGroup>
+                  <Label for="signup-username">Username</Label>
+                  <Input
+                    type="text"
+                    name="username"
+                    id="signup-username"
+                    placeholder="username"
+                    onChange={this.handleChange}
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="signup-password">Password</Label>
+                  <Input
+                    type="password"
+                    name="password"
+                    id="signup-password"
+                    placeholder="password"
+                    onChange={this.handleChange}
                   />
                 </FormGroup>
                 <Button>Submit</Button>
