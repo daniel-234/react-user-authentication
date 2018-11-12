@@ -1,5 +1,13 @@
+/*
+ * Constants definitions.
+ */
 const API_URL = "http://localhost:3001/api";
 
+/*
+ * Functional Mixin for data privacy.
+ * Return an object with properties that can access those
+ * provate data. 
+ */
 let authService = () => {
   /*
    * Retrieve the token from localStorage.
@@ -7,8 +15,13 @@ let authService = () => {
   function getToken() {
     return localStorage.getItem("token");
   }
+
   // TODO
   // refactor
+
+  /*
+   * Return true if there's a token in localStorage.
+   */
   function isAuthenticated() {
     let token = localStorage.getItem("token");
     if (token) {
@@ -20,6 +33,9 @@ let authService = () => {
     }
   }
 
+  /*
+   * Fetch data from the given url (with options).
+   */
   function fetchFromAPI(url, options) {
     let headers = {
       Accept: "application/json",
@@ -34,10 +50,11 @@ let authService = () => {
       headers,
       ...options
     }).then(response => response.json());
-    // eslint-disable-next-line no-console
-    // .then(jsonData => console.log(jsonData))
   }
 
+  /*
+   * Perform the actual authentication call.
+   */
   function doAuthentication(endpoint, values) {
     return fetchFromAPI(`${API_URL}/${endpoint}`, {
       method: "POST",
@@ -46,6 +63,10 @@ let authService = () => {
     });
   }
 
+  /*
+   * Return an object with the methods we need added.
+   * Use closures for data privacy.
+   */
   return Object.assign(
     {},
     {

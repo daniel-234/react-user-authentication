@@ -43,7 +43,6 @@ class Login extends Component {
     console.log(this.state.password);
     let { username, password } = this.state;
     if (username && password) {
-      // msg = `username: ${username}, password: ${password}`;
       authService()
         .signup(username, password)
         .then(result => {
