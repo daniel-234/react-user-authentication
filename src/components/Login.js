@@ -35,18 +35,18 @@ class Login extends Component {
   };
 
   onSignupSubmit = event => {
-    // let msg;
     event.preventDefault();
-    // eslint-disable-next-line no-console
+    // TODO
+    // Delete console log later
     console.log(this.state.username);
-    // eslint-disable-next-line no-console
     console.log(this.state.password);
     let { username, password } = this.state;
     if (username && password) {
       authService()
         .signup(username, password)
         .then(result => {
-          // eslint-disable-next-line no-console
+          // TODO
+          // Delete console log later.
           console.log(result.token);
           authService().finishAuthentication(result.token);
         });
