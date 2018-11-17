@@ -5,22 +5,25 @@ import {
   NavItem,
   NavLink,
   TabContent,
-  TabPane,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Button
+  TabPane
+  // Form,
+  // FormGroup,
+  // Label,
+  // Input,
+  // Button
 } from "reactstrap";
 import classnames from "classnames";
 import authService from "../utils/AuthService";
+import FormComponent from "./Form";
 
 class Login extends Component {
-  state = {
+  initialState = {
     username: "",
     password: "",
     activeTab: "1"
   };
+
+  state = this.initialState;
 
   toggle = tab => {
     if (this.state.activeTab !== tab) {
@@ -30,17 +33,16 @@ class Login extends Component {
     }
   };
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  /*
+   * Take a user object with `username` and `password` fields,
+   * update the state of the component and call the API to register
+   * the user.
+   */
+  onSignupSubmit = user => {
+    let newState = { ...this.initialState, ...user };
+    this.setState(newState);
 
-  onSignupSubmit = event => {
-    event.preventDefault();
-    // TODO
-    // Delete console log later
-    console.log(this.state.username);
-    console.log(this.state.password);
-    let { username, password } = this.state;
+    let { username, password } = user;
     if (username && password) {
       authService()
         .signup(username, password)
@@ -82,54 +84,10 @@ class Login extends Component {
           </Nav>
           <TabContent activeTab={this.state.activeTab} className="tab-content">
             <TabPane tabId="1">
-              <Form onSubmit={this.onSignupSubmit}>
-                <FormGroup>
-                  <Label for="signin-username">Username</Label>
-                  <Input
-                    type="text"
-                    name="username"
-                    id="signin-username"
-                    placeholder="username"
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Label for="signin-password">Password</Label>
-                  <Input
-                    type="password"
-                    name="password"
-                    id="signin-password"
-                    placeholder="password"
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-                <Button type="submit">Submit</Button>
-              </Form>
+              <FormComponent id="signin-form" onSubmit={this.onSignupSubmit} />
             </TabPane>
             <TabPane tabId="2">
-              <Form onSubmit={this.onSignupSubmit}>
-                <FormGroup>
-                  <Label for="signup-username">Username</Label>
-                  <Input
-                    type="text"
-                    name="username"
-                    id="signup-username"
-                    placeholder="username"
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Label for="signup-password">Password</Label>
-                  <Input
-                    type="password"
-                    name="password"
-                    id="signup-password"
-                    placeholder="password"
-                    onChange={this.handleChange}
-                  />
-                </FormGroup>
-                <Button>Submit</Button>
-              </Form>
+              <FormComponent id="signup-form" onSubmit={this.onSignupSubmit} />
             </TabPane>
           </TabContent>
         </div>
