@@ -1,17 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import {
-  Nav,
-  NavItem,
-  NavLink,
-  TabContent,
-  TabPane
-  // Form,
-  // FormGroup,
-  // Label,
-  // Input,
-  // Button
-} from "reactstrap";
+import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
 import authService from "../utils/AuthService";
 import FormComponent from "./Form";
@@ -84,10 +73,18 @@ class Login extends Component {
           </Nav>
           <TabContent activeTab={this.state.activeTab} className="tab-content">
             <TabPane tabId="1">
-              <FormComponent id="signin-form" onSubmit={this.onSignupSubmit} />
+              <FormComponent
+                id="signin-form"
+                inputs={["username", "password"]}
+                onSubmit={this.onSignupSubmit}
+              />
             </TabPane>
             <TabPane tabId="2">
-              <FormComponent id="signup-form" onSubmit={this.onSignupSubmit} />
+              <FormComponent
+                id="signup-form"
+                inputs={["username", "password"]}
+                onSubmit={this.onSignupSubmit}
+              />
             </TabPane>
           </TabContent>
         </div>

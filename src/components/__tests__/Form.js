@@ -16,7 +16,14 @@ test("calls onSubmit with username and password when submitted", () => {
   // Create a `div` container.
   let container = document.createElement("div");
   // Render the Form component inside it.
-  ReactDOM.render(<Form onSubmit={handleSubmit} />, container);
+  ReactDOM.render(
+    <Form
+      id="signin-form"
+      inputs={["username", "password"]}
+      onSubmit={handleSubmit}
+    />,
+    container
+  );
 
   // Select all the inputs inside the form.
   let inputs = container.querySelectorAll("input");

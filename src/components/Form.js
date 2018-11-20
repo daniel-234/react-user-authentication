@@ -1,9 +1,11 @@
 import React from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, Button } from "reactstrap";
+import InputGroup from "./InputGroup";
 
-function FormComponent({ onSubmit }) {
+function FormComponent({ onSubmit, inputs }) {
   return (
     <Form
+      className="form"
       onSubmit={event => {
         event.preventDefault();
 
@@ -17,24 +19,16 @@ function FormComponent({ onSubmit }) {
         });
       }}
     >
-      <FormGroup>
-        <Label for="form-username">Username</Label>
-        <Input
-          type="text"
-          name="username"
-          id="form-username"
-          placeholder="username"
+      {inputs.map((input, index) => (
+        <InputGroup
+          key={index}
+          label={`${input.charAt(0).toUpperCase()}${input.slice(1)}`}
+          labelFor={`form-${input}`}
+          name={`${input}`}
+          id={`form-${input}`}
+          placeholder={input}
         />
-      </FormGroup>
-      <FormGroup>
-        <Label for="form-password">Password</Label>
-        <Input
-          type="password"
-          name="password"
-          id="form-password"
-          placeholder="password"
-        />
-      </FormGroup>
+      ))}
       <Button type="submit">Submit</Button>
     </Form>
   );
