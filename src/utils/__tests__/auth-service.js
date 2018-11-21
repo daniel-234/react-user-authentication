@@ -1,4 +1,4 @@
-import authService from "../authService";
+import authService from "../auth-service";
 
 describe("The authentication service", () => {
   test("has methods to authenticate", () => {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./header";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
-import authService from "../utils/authService";
+import authService from "../utils/auth-service";
 import FormComponent from "./form";
 
 class Login extends Component {
