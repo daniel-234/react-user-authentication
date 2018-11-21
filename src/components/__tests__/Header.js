@@ -1,6 +1,6 @@
 import React from "react";
 import { create } from "react-test-renderer";
-import Header from "../Header";
+import Header from "../header";
 
 /*
  * Traverse the output to find specific nodes and make

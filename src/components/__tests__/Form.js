@@ -5,7 +5,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import Form from "../Form";
+import Form from "../form";
 
 test("calls onSubmit with username and password when submitted", () => {
   // Create a fake user.

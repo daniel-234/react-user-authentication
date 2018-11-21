@@ -1,6 +1,6 @@
 import React from "react";
 import { create } from "react-test-renderer";
-import Article from "../Article";
+import Article from "../article";
 
 /*
  * Example of a snapshot test.

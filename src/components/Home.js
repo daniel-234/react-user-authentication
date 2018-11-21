@@ -1,6 +1,6 @@
 import React from "react";
-import Article from "./Article";
-import Header from "./Header";
+import Article from "./article";
+import Header from "./header";
 
 const Home = () => {
   return (

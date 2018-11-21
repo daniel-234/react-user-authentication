@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Header from "./Header";
+import Header from "./header";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
-import authService from "../utils/AuthService";
-import FormComponent from "./Form";
+import authService from "../utils/authService";
+import FormComponent from "./form";
 
 class Login extends Component {
   initialState = {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Button } from "reactstrap";
-import InputGroup from "./InputGroup";
+import InputGroup from "./inputGroup";
 
 function FormComponent({ onSubmit, inputs }) {
   return (
