@@ -5,8 +5,10 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import { render, cleanup } from "react-testing-library";
 import Form from "../form";
 
+// Test without using a testing library.
 test("calls onSubmit with username and password when submitted", () => {
   // Create a fake user.
   let fakeUser = { username: "hulk", password: "big-green-guy" };
@@ -47,4 +49,53 @@ test("calls onSubmit with username and password when submitted", () => {
   expect(handleSubmit).toHaveBeenCalledTimes(1);
   expect(handleSubmit).toHaveBeenCalledWith(fakeUser);
   expect(submitButtonNode.type).toBe("submit");
+});
+
+// Test using the testing library `react-testing-library`.
+describe("A Signup form", () => {
+  // Unmount React trees that were mounted with `render`.
+  afterEach(cleanup);
+
+  test("calls onSubmit with email, username and password when submitted", () => {
+    let fakeUser = {
+      username: "newguy",
+      // TODO
+      // Refactor Form component to accept an email for signup
+      // email: 'new-guy@new-guy.com',
+      password: "that-s-new"
+    };
+
+    let handleSubmit = jest.fn();
+
+    let { getByLabelText, getByText } = render(
+      <Form
+        id="signup-form"
+        inputs={["username", "email", "password"]}
+        onSubmit={handleSubmit}
+      />
+    );
+
+    let usernameNode = getByLabelText("Username");
+    let passwordNode = getByLabelText("Password");
+    let emailNode = getByLabelText("Email");
+
+    /*
+     * Valid alternatives here:
+
+     * let usernameNode = getByPlaceholderText("username"); 
+     *                    |-> targets the placeholder attribute value
+     * 
+     * let passwordNode = getByText("Password");
+     *                    |-> targets testNodes having testContent matching the given text
+     */
+
+    usernameNode.value = fakeUser.username;
+    emailNode.value = fakeUser.email;
+    passwordNode.value = fakeUser.password;
+
+    getByText("Submit").click();
+
+    expect(handleSubmit).toHaveBeenLastCalledWith(fakeUser);
+    expect(handleSubmit).toHaveBeenCalledTimes(1);
+  });
 });
