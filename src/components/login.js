@@ -23,9 +23,8 @@ class Login extends Component {
   };
 
   /*
-   * Take a user object with `username` and `password` fields,
-   * update the state of the component and call the API to register
-   * the user.
+   * Take a user object with `username` and `password` fields, update 
+   * the state of the component and call the API to register the user.
    */
   onSignupSubmit = user => {
     let newState = { ...this.initialState, ...user };
@@ -38,6 +37,27 @@ class Login extends Component {
         .then(result => {
           // TODO
           // Delete console log later.
+          console.log(result.token);
+          authService().finishAuthentication(result.token);
+        });
+    }
+  };
+
+  /*
+   * Take a user object with `username` and `password` fields, update
+   * the state of the component and call the API to authenticate the user.
+   */
+  onSigninSubmit = user => {
+    let newState = { ...this.initialState, ...user };
+    this.setState(newState);
+
+    let { username, password } = user;
+    if (username && password) {
+      authService()
+        .signin(username, password)
+        .then(result => {
+          // TODO
+          // delete later
           console.log(result.token);
           authService().finishAuthentication(result.token);
         });
@@ -76,7 +96,7 @@ class Login extends Component {
               <FormComponent
                 id="signin-form"
                 inputs={["username", "password"]}
-                onSubmit={this.onSignupSubmit}
+                onSubmit={this.onSigninSubmit}
               />
             </TabPane>
             <TabPane tabId="2">

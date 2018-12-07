@@ -73,7 +73,9 @@ let authService = () => {
       signup(username, password) {
         return doAuthentication("user", { username, password });
       },
-
+      signin(username, password) {
+        return doAuthentication("user/authenticate", { username, password });
+      },
       finishAuthentication(token) {
         localStorage.setItem("token", token);
       }
