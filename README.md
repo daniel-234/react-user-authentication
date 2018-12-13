@@ -101,7 +101,13 @@ This project is intended for learning purposes only. Much of it will reproduce c
   The third link points to a problem that may arise if you don't configure your script files to be served from a relative file (see [Live reloading and relative paths](#live-reloading-and-relative-paths) above). 
 - [Stackoverflow - Unexpected token error in React Router component](https://stackoverflow.com/questions/29718481/unexpected-token-error-in-react-router-component)
 
-#### Define private data in JS
+  #### Define private data in JS
 
 - [Stackoverflow - How to define private data with behavior delegation in JS](https://stackoverflow.com/questions/42611606/how-to-define-private-variables-with-behavior-delegation-oloo-in-js)
 - [Medium - Functional Mixins - Composing software](https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c)
+
+  #### About buttons and anchor tags
+
+- [Stackoverflow - Wrapping (properly) a React Router Link in an HTML button](https://stackoverflow.com/questions/42463263/wrapping-a-react-router-link-in-an-html-button)
+- [Stackoverflow - How to remove the default link color of the HTML hyperlink <a> tag](https://stackoverflow.com/questions/6722467/how-to-remove-the-default-link-color-of-the-html-hyperlink-a-tag)
+- [Stackoverflow - How to remove the underline for anchor links](https://stackoverflow.com/questions/2041388/how-to-remove-the-underline-for-anchorslinks/29986654)

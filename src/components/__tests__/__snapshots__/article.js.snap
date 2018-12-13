@@ -10,5 +10,27 @@ exports[`Snapshot of the Article component 1`] = `
   <p>
     This app is an exercise to demonstrate how to add authentication to a React app.
   </p>
+  <div>
+    <button
+      aria-label={null}
+      className="log-button btn btn-primary btn-lg"
+      onClick={[Function]}
+    >
+      <a
+        className="link-reach-router"
+        href="/login"
+        onClick={[Function]}
+      >
+        Log In
+      </a>
+    </button>
+    <button
+      aria-label={null}
+      className="log-button btn btn-primary btn-lg"
+      onClick={[Function]}
+    >
+      Log Out
+    </button>
+  </div>
 </div>
 `;

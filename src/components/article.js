@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import { Button } from "reactstrap";
 
 const Article = () => {
@@ -12,8 +13,11 @@ const Article = () => {
       </p>
       <div>
         <Button className="log-button" color="primary" size="lg">
-          Log In
+          <Link className="link-reach-router" to="/login">
+            Log In
+          </Link>
         </Button>
+
         <Button className="log-button" color="primary" size="lg">
           Log Out
         </Button>

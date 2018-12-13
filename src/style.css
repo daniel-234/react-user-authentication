@@ -63,3 +63,13 @@ body {
 .log-button {
   margin-right: 0.25em;
 }
+
+.link-reach-router {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link-reach-router:hover {
+  color: inherit;
+  text-decoration: none;
+}
