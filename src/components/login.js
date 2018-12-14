@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";
 import Header from "./header";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
@@ -35,10 +36,10 @@ class Login extends Component {
       authService()
         .signup(username, password)
         .then(result => {
-          // TODO
-          // Delete console log later.
-          console.log(result.token);
+          // Call the authorization service utility to finish authentication.
           authService().finishAuthentication(result.token);
+          // Navigate programmatically to the Home page.
+          navigate("/");
         });
     }
   };
@@ -56,10 +57,10 @@ class Login extends Component {
       authService()
         .signin(username, password)
         .then(result => {
-          // TODO
-          // delete later
-          console.log(result.token);
+          // Call the authorization service utility to finish authentication.
           authService().finishAuthentication(result.token);
+          // Navigate programmatically to the Home page.
+          navigate("/");
         });
     }
   };
