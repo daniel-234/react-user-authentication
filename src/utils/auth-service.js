@@ -78,6 +78,10 @@ let authService = () => {
       },
       finishAuthentication(token) {
         localStorage.setItem("token", token);
+      },
+      logout() {
+        // Remove the token from localStorage
+        localStorage.removeItem("token");
       }
     }
   );

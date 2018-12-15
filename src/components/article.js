@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { Button } from "reactstrap";
+import authService from "../utils/auth-service";
 
 const Article = () => {
   return (
@@ -18,7 +19,14 @@ const Article = () => {
           </Link>
         </Button>
 
-        <Button className="log-button" color="primary" size="lg">
+        <Button
+          className="log-button"
+          color="primary"
+          size="lg"
+          onClick={function logout() {
+            authService().logout();
+          }}
+        >
           Log Out
         </Button>
       </div>

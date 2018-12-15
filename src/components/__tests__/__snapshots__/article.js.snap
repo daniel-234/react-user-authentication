@@ -28,6 +28,7 @@ exports[`Snapshot of the Article component 1`] = `
       aria-label={null}
       className="log-button btn btn-primary btn-lg"
       onClick={[Function]}
+      type="button"
     >
       Log Out
     </button>
