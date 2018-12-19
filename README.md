@@ -111,3 +111,5 @@ This project is intended for learning purposes only. Much of it will reproduce c
 - [Stackoverflow - Wrapping (properly) a React Router Link in an HTML button](https://stackoverflow.com/questions/42463263/wrapping-a-react-router-link-in-an-html-button)
 - [Stackoverflow - How to remove the default link color of the HTML hyperlink <a> tag](https://stackoverflow.com/questions/6722467/how-to-remove-the-default-link-color-of-the-html-hyperlink-a-tag)
 - [Stackoverflow - How to remove the underline for anchor links](https://stackoverflow.com/questions/2041388/how-to-remove-the-underline-for-anchorslinks/29986654)
+
+- [Stackoverflow - JavaScript new Date(0)](https://stackoverflow.com/questions/2604708/javascript-new-date0-class-shows-16-hours)

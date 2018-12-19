@@ -14,20 +14,27 @@ class Header extends Component {
         <Navbar color="light" light>
           <NavbarBrand>React User Authentication</NavbarBrand>
           <Nav>
-            <NavItem>
-              <Link className="link-reach-router navbar-link-text" to="/login">
-                Log In
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link
-                className="link-reach-router navbar-link-text"
-                to="/"
-                onClick={this.logout}
-              >
-                Log Out
-              </Link>
-            </NavItem>
+            {!authService().isAuthenticated() && (
+              <NavItem>
+                <Link
+                  className="link-reach-router navbar-link-text"
+                  to="/login"
+                >
+                  Log In
+                </Link>
+              </NavItem>
+            )}
+            {authService().isAuthenticated() && (
+              <NavItem>
+                <Link
+                  className="link-reach-router navbar-link-text"
+                  to="/"
+                  onClick={this.logout}
+                >
+                  Log Out
+                </Link>
+              </NavItem>
+            )}
           </Nav>
         </Navbar>
       </div>

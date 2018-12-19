@@ -13,22 +13,26 @@ const Article = () => {
         }
       </p>
       <div>
-        <Button className="log-button" color="primary" size="lg">
-          <Link className="link-reach-router" to="/login">
-            Log In
-          </Link>
-        </Button>
-
-        <Button
-          className="log-button"
-          color="primary"
-          size="lg"
-          onClick={function logout() {
-            authService().logout();
-          }}
-        >
-          Log Out
-        </Button>
+        {!authService().isAuthenticated() && (
+          <Button className="log-button" color="primary" size="lg">
+            <Link className="link-reach-router" to="/login">
+              Log In
+            </Link>
+          </Button>
+        )}
+        {authService().isAuthenticated() && (
+          <Button className="log-button" color="primary" size="lg">
+            <Link
+              className="link-reach-router"
+              to="/"
+              onClick={function logout() {
+                authService().logout();
+              }}
+            >
+              Log Out
+            </Link>
+          </Button>
+        )}
       </div>
     </div>
   );

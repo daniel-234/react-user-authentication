@@ -1,3 +1,5 @@
+import isTokenExpired from "./jwtHelper";
+
 /*
  * Constants definitions.
  */
@@ -16,18 +18,14 @@ let authService = () => {
     return localStorage.getItem("token");
   }
 
-  // TODO
-  // refactor
-
   /*
-   * Return true if there's a token in localStorage.
+   * Check if there is a token saved in localStorage 
+   * and if it's still valid.
    */
   function isAuthenticated() {
     let token = localStorage.getItem("token");
     if (token) {
-      // TODO
-      // refactor
-      return true;
+      return !isTokenExpired(token);
     } else {
       return false;
     }
@@ -82,6 +80,9 @@ let authService = () => {
       logout() {
         // Remove the token from localStorage
         localStorage.removeItem("token");
+      },
+      isAuthenticated() {
+        return isAuthenticated();
       }
     }
   );
