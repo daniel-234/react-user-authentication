@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
-import Header from "./header";
-import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
+import {
+  Navbar,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  TabContent,
+  TabPane
+} from "reactstrap";
 import classnames from "classnames";
 import authService from "../utils/auth-service";
 import FormComponent from "./form";
@@ -68,7 +75,11 @@ class Login extends Component {
   render() {
     return (
       <div className="container">
-        <Header />
+        <div className="header">
+          <Navbar color="light" light>
+            <NavbarBrand>React User Authentication</NavbarBrand>
+          </Navbar>
+        </div>
         <div className="content content-login">
           <Nav tabs>
             <NavItem>
