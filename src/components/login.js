@@ -80,7 +80,7 @@ class Login extends Component {
             <NavbarBrand>React User Authentication</NavbarBrand>
           </Navbar>
         </div>
-        <div className="content content-login">
+        <div className="content content-light-background">
           <Nav tabs>
             <NavItem>
               <NavLink
