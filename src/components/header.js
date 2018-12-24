@@ -25,15 +25,25 @@ class Header extends Component {
               </NavItem>
             )}
             {authService().isAuthenticated() && (
-              <NavItem>
-                <Link
-                  className="link-reach-router navbar-link-text"
-                  to="/"
-                  onClick={this.logout}
-                >
-                  Log Out
-                </Link>
-              </NavItem>
+              <>
+                <NavItem>
+                  <Link
+                    className="link-reach-router navbar-link-text"
+                    to="/profile"
+                  >
+                    Profile
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <Link
+                    className="link-reach-router navbar-link-text"
+                    to="/"
+                    onClick={this.logout}
+                  >
+                    Log Out
+                  </Link>
+                </NavItem>
+              </>
             )}
           </Nav>
         </Navbar>
