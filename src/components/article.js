@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "@reach/router";
 import { Button } from "reactstrap";
-import authService from "../utils/auth-service";
 
-const Article = () => {
+const Article = props => {
+  let { authenticated, logout } = props;
   return (
     <div className="content">
       <h2>{"Welcome!"}</h2>
@@ -13,22 +13,16 @@ const Article = () => {
         }
       </p>
       <div>
-        {!authService().isAuthenticated() && (
+        {!authenticated && (
           <Button className="log-button" color="primary" size="lg">
             <Link className="link-reach-router" to="/login">
               Log In
             </Link>
           </Button>
         )}
-        {authService().isAuthenticated() && (
+        {authenticated && (
           <Button className="log-button" color="primary" size="lg">
-            <Link
-              className="link-reach-router"
-              to="/"
-              onClick={function logout() {
-                authService().logout();
-              }}
-            >
+            <Link className="link-reach-router" to="/" onClick={logout}>
               Log Out
             </Link>
           </Button>

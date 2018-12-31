@@ -57,7 +57,10 @@ class Home extends Component {
           links={this.state.links}
           authenticated={this.state.authenticated}
         />
-        <Article />
+        <Article
+          authenticated={this.state.authenticated}
+          logout={this.logout}
+        />
       </div>
     );
   }
