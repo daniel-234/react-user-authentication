@@ -24,6 +24,12 @@ class Home extends Component {
           onClickProp: undefined
         },
         {
+          text: "Instructors",
+          navigationLink: "/instructor",
+          authentication: true,
+          onClickProp: undefined
+        },
+        {
           text: "Profile",
           navigationLink: "/profile",
           authentication: true,
