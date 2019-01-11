@@ -27,6 +27,12 @@ class Profile extends Component {
           onClickProp: undefined
         },
         {
+          text: "Instructors",
+          navigationLink: "/instructor",
+          authentication: true,
+          onClickProp: undefined
+        },
+        {
           text: "Log Out",
           navigationLink: "/",
           authentication: true,
