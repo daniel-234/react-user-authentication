@@ -61,6 +61,13 @@ let authService = () => {
     });
   }
 
+  function getResources(endpoint) {
+    return fetchFromAPI(`${API_URL}/${endpoint}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
   /*
    * Return an object with the methods we need added.
    * Use closures for data privacy.
@@ -68,21 +75,24 @@ let authService = () => {
   return Object.assign(
     {},
     {
-      signup(username, password) {
-        return doAuthentication("user", { username, password });
-      },
-      signin(username, password) {
-        return doAuthentication("user/authenticate", { username, password });
+      getResources(endpoint) {
+        return getResources(endpoint);
       },
       finishAuthentication(token) {
         localStorage.setItem("token", token);
+      },
+      isAuthenticated() {
+        return isAuthenticated();
       },
       logout() {
         // Remove the token from localStorage
         localStorage.removeItem("token");
       },
-      isAuthenticated() {
-        return isAuthenticated();
+      signin(username, password) {
+        return doAuthentication("user/authenticate", { username, password });
+      },
+      signup(username, password) {
+        return doAuthentication("user", { username, password });
       }
     }
   );

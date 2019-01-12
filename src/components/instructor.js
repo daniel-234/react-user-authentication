@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import Header from "./header";
 import authService from "../utils/auth-service";
 
+function getInstructorListItem(instructor) {
+  return (
+    <li key={instructor._id}>
+      <p>{instructor.username}</p>
+    </li>
+  );
+}
+
 class Instructor extends Component {
   state = {
     instructors: [],
@@ -33,6 +41,9 @@ class Instructor extends Component {
         }
       ]
     });
+    authService()
+      .getResources("user")
+      .then(data => this.setState({ instructors: data }));
   }
 
   /* 
@@ -47,7 +58,12 @@ class Instructor extends Component {
   };
 
   render() {
-    let token = localStorage.getItem("token");
+    let instructorList;
+    if (this.state.instructors) {
+      instructorList = this.state.instructors.map(function(instructor) {
+        return getInstructorListItem(instructor);
+      });
+    }
 
     return (
       <div className="container">
@@ -55,9 +71,15 @@ class Instructor extends Component {
           links={this.state.links}
           authenticated={this.state.authenticated}
         />
-        {token ? (
+        {this.state.authenticated ? (
           <div className="content content-light-background">
             <h2>Instructors</h2>
+            <hr />
+            {this.state.instructors.length ? (
+              <ul>{instructorList}</ul>
+            ) : (
+              <p>No instructors in the database yet!</p>
+            )}
           </div>
         ) : (
           <div className="content">
