@@ -113,3 +113,6 @@ This project is intended for learning purposes only. Much of it will reproduce c
 - [Stackoverflow - How to remove the underline for anchor links](https://stackoverflow.com/questions/2041388/how-to-remove-the-underline-for-anchorslinks/29986654)
 
 - [Stackoverflow - JavaScript new Date(0)](https://stackoverflow.com/questions/2604708/javascript-new-date0-class-shows-16-hours)
+
+  #### Node, Webpack (or a bundler in general), paths to CSS files and MIME type checker activated
+- [Stackoverflow - Stylesheet not loaded because of MIME-type](https://stackoverflow.com/questions/48248832/stylesheet-not-loaded-because-of-mime-type)
