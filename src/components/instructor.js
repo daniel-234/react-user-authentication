@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";
+import { Button } from "reactstrap";
 import Header from "./header";
 import authService from "../utils/auth-service";
 
@@ -57,6 +59,14 @@ class Instructor extends Component {
     });
   };
 
+  onAddInstructor = () => {
+    /*
+     * Navigate programmatically to a new page with a special form
+     * to add an instructor.
+     */
+    navigate("/instructor/new");
+  };
+
   render() {
     let instructorList;
     if (this.state.instructors) {
@@ -75,8 +85,11 @@ class Instructor extends Component {
           <div className="content content-light-background">
             <h2>Instructors</h2>
             <hr />
+            <Button color="primary" size="sm" onClick={this.onAddInstructor}>
+              Add Instructor
+            </Button>
             {this.state.instructors.length ? (
-              <ul>{instructorList}</ul>
+              <ul className="instructor-list">{instructorList}</ul>
             ) : (
               <p>No instructors in the database yet!</p>
             )}

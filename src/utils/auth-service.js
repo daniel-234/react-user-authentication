@@ -53,7 +53,7 @@ let authService = () => {
   /*
    * Perform the actual authentication call.
    */
-  function doAuthentication(endpoint, values) {
+  function submitToAPI(endpoint, values) {
     return fetchFromAPI(`${API_URL}/${endpoint}`, {
       method: "POST",
       body: JSON.stringify(values),
@@ -88,11 +88,19 @@ let authService = () => {
         // Remove the token from localStorage
         localStorage.removeItem("token");
       },
+      newInstructorSubmit(firstName, lastName, email, company) {
+        return submitToAPI("instructor", {
+          firstName,
+          lastName,
+          email,
+          company
+        });
+      },
       signin(username, password) {
-        return doAuthentication("user/authenticate", { username, password });
+        return submitToAPI("user/authenticate", { username, password });
       },
       signup(username, password) {
-        return doAuthentication("user", { username, password });
+        return submitToAPI("user", { username, password });
       }
     }
   );

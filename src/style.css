@@ -84,3 +84,8 @@ body > #root > div {
   display: flex;
   align-items: center;
 }
+
+.instructor-list {
+  margin-top: 2em;
+  list-style-type: none;
+}
