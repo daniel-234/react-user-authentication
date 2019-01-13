@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./header";
+import InstructorForm from "./instructor-form";
 import authService from "../utils/auth-service";
 
 class NewInstructor extends Component {
@@ -45,6 +46,10 @@ class NewInstructor extends Component {
     });
   };
 
+  onAddSubmit = () => {
+    return undefined;
+  };
+
   render() {
     return (
       <div className="container">
@@ -53,8 +58,13 @@ class NewInstructor extends Component {
           authenticated={this.state.authenticated}
         />
         <div className="content content-light-background">
-          <h2>New instructor</h2>
-          <p>Add form for new instructor</p>
+          <h2>Add new instructor</h2>
+          <hr />
+          <InstructorForm
+            id="signin-form"
+            inputs={["first name", "last name", "email", "password"]}
+            onSubmit={this.onAddSubmit}
+          />
         </div>
       </div>
     );
