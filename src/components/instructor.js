@@ -7,7 +7,11 @@ import authService from "../utils/auth-service";
 function getInstructorListItem(instructor) {
   return (
     <li key={instructor._id}>
-      <p>{instructor.username}</p>
+      <p className="list-text">{`${instructor.firstname} ${
+        instructor.lastname
+      }`}</p>
+      <p>{`COMPANY:  ${instructor.company}`}</p>
+      <br />
     </li>
   );
 }
@@ -44,7 +48,7 @@ class Instructor extends Component {
       ]
     });
     authService()
-      .getResources("user")
+      .getResources("instructor")
       .then(data => this.setState({ instructors: data }));
   }
 
@@ -91,7 +95,10 @@ class Instructor extends Component {
             {this.state.instructors.length ? (
               <ul className="instructor-list">{instructorList}</ul>
             ) : (
-              <p>No instructors in the database yet!</p>
+              <>
+                <hr />
+                <p>No instructors in the database yet!</p>
+              </>
             )}
           </div>
         ) : (

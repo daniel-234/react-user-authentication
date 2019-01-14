@@ -88,11 +88,10 @@ let authService = () => {
         // Remove the token from localStorage
         localStorage.removeItem("token");
       },
-      newInstructorSubmit(firstName, lastName, email, company) {
+      newInstructorSubmit(firstname, lastname, company) {
         return submitToAPI("instructor", {
-          firstName,
-          lastName,
-          email,
+          firstname,
+          lastname,
           company
         });
       },

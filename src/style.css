@@ -89,3 +89,7 @@ body > #root > div {
   margin-top: 2em;
   list-style-type: none;
 }
+
+.list-text {
+  font-size: 1.2em;
+}

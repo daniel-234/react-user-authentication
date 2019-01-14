@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";
 import Header from "./header";
 import InstructorForm from "./instructor-form";
 import authService from "../utils/auth-service";
@@ -6,7 +7,10 @@ import authService from "../utils/auth-service";
 class NewInstructor extends Component {
   state = {
     authenticated: false,
-    links: []
+    links: [],
+    firstname: "",
+    lastname: "",
+    company: ""
   };
 
   componentDidMount() {
@@ -46,7 +50,19 @@ class NewInstructor extends Component {
     });
   };
 
-  onAddSubmit = () => {
+  /*
+   * Update state with the instructor informations and
+   * call the API, passing them as input. 
+   * Navigate back to the Instructor page. 
+   */
+  onAddSubmit = instructor => {
+    this.setState({ ...instructor });
+
+    let { firstname, lastname, company } = instructor;
+    if (firstname && lastname && company) {
+      authService().newInstructorSubmit(firstname, lastname, company);
+      navigate("../instructor");
+    }
     return undefined;
   };
 
@@ -57,15 +73,25 @@ class NewInstructor extends Component {
           links={this.state.links}
           authenticated={this.state.authenticated}
         />
-        <div className="content content-light-background">
-          <h2>Add new instructor</h2>
-          <hr />
-          <InstructorForm
-            id="signin-form"
-            inputs={["first name", "last name", "email", "password"]}
-            onSubmit={this.onAddSubmit}
-          />
-        </div>
+        {this.state.authenticated ? (
+          <div className="content content-light-background">
+            <h2>Add new instructor</h2>
+            <hr />
+            <InstructorForm
+              id="instructor-form"
+              inputs={["firstname", "lastname", "company"]}
+              onSubmit={this.onAddSubmit}
+            />
+          </div>
+        ) : (
+          <div className="content">
+            <p
+            >{`You don't have permissions to access the instructors page.`}</p>
+            <p>
+              {`Please, check with the administrator to get an "admin" priviledge access.`}
+            </p>
+          </div>
+        )}
       </div>
     );
   }
