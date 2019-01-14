@@ -41,6 +41,10 @@ class Login extends Component {
     let { username, password } = user;
     if (username && password) {
       authService()
+        // To sign up a user with admin scope, you will need a little hack here.
+        //
+        // Uncomment `signupAdmin` and comment `signup`.
+        // .signupAdmin(username, password)
         .signup(username, password)
         .then(result => {
           // Call the authorization service utility to finish authentication.

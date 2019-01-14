@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
 
 function getTokenExpirationDate(token) {
-  const decodedToken = jwtDecode(token);
+  let decodedToken = jwtDecode(token);
 
   if (!decodedToken) {
     return null;
@@ -17,7 +17,7 @@ function getTokenExpirationDate(token) {
   return date;
 }
 
-function isTokenExpired(token) {
+export function isTokenExpired(token) {
   let date = getTokenExpirationDate(token);
 
   if (date === null) {
@@ -27,4 +27,11 @@ function isTokenExpired(token) {
   return date.valueOf() < new Date().valueOf;
 }
 
-export default isTokenExpired;
+/*
+ * Decode the token and return the token scope
+ * property value.
+ */
+export function getScope(token) {
+  let decodedToken = jwtDecode(token);
+  return decodedToken.scope;
+}

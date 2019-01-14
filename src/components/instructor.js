@@ -20,12 +20,14 @@ class Instructor extends Component {
   state = {
     instructors: [],
     authenticated: false,
+    isAdmin: false,
     links: []
   };
 
   componentDidMount() {
     this.setState({
       authenticated: authService().isAuthenticated(),
+      isAdmin: authService().getUserScope() === "admin",
       links: [
         {
           text: "Home",
@@ -89,9 +91,11 @@ class Instructor extends Component {
           <div className="content content-light-background">
             <h2>Instructors</h2>
             <hr />
-            <Button color="primary" size="sm" onClick={this.onAddInstructor}>
-              Add Instructor
-            </Button>
+            {this.state.isAdmin && (
+              <Button color="primary" size="sm" onClick={this.onAddInstructor}>
+                Add Instructor
+              </Button>
+            )}
             {this.state.instructors.length ? (
               <ul className="instructor-list">{instructorList}</ul>
             ) : (

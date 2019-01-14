@@ -1,4 +1,4 @@
-import isTokenExpired from "./jwtHelper";
+import { isTokenExpired, getScope } from "./jwtHelper";
 
 /*
  * Constants definitions.
@@ -69,6 +69,19 @@ let authService = () => {
   }
 
   /*
+   * Return the scope property value of the token.
+   */
+  function getUserScope() {
+    let token = localStorage.getItem("token");
+    if (token) {
+      let scope = getScope(token);
+      return scope;
+    } else {
+      return false;
+    }
+  }
+
+  /*
    * Return an object with the methods we need added.
    * Use closures for data privacy.
    */
@@ -77,6 +90,9 @@ let authService = () => {
     {
       getResources(endpoint) {
         return getResources(endpoint);
+      },
+      getUserScope() {
+        return getUserScope();
       },
       finishAuthentication(token) {
         localStorage.setItem("token", token);
@@ -100,6 +116,9 @@ let authService = () => {
       },
       signup(username, password) {
         return submitToAPI("user", { username, password });
+      },
+      signupAdmin(username, password) {
+        return submitToAPI("user", { username, password, admin: true });
       }
     }
   );

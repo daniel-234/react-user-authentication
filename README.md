@@ -65,6 +65,13 @@ That little modification in `index.html` let us load the `main.js` file from tha
 Errors in this configuration may lead to several issues (see [Webpack and HMR issues](#webpack-and-HMR-issues) to read more).  
 The bundled file referenced inside the home page now has a relative path that points to the folder where the development server accesses the webpack assets. 
 
+#### Protecting resources (with scope)
+
+Part of this small project, built to learn how to deal with authentication, consists on working on protecting routes. 
+Assigning priviledges to certain users would require a management service, that is beyond the scope of this small project. So I've created an 'augmented' signup method that you can use to play with the application with admin credentials.
+As a user with 'admin' credentials, you can add instructors to the database. 
+If you want to register a user with admin credentials, just uncomment the 'signupAdmin' method in the 'login' component and comment the 'signup' method (and viceversa to create a normal user). 
+
 ### Continuous Integration
 
 This application uses two services for Continuous Integration:
