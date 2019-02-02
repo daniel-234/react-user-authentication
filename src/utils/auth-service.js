@@ -105,20 +105,20 @@ let authService = () => {
         localStorage.removeItem("token");
       },
       newInstructorSubmit(firstname, lastname, company) {
-        return submitToAPI("instructor", {
+        return submitToAPI("instructors", {
           firstname,
           lastname,
           company
         });
       },
       signin(username, password) {
-        return submitToAPI("user/authenticate", { username, password });
+        return submitToAPI("users/authenticate", { username, password });
       },
       signup(username, password) {
-        return submitToAPI("user", { username, password });
+        return submitToAPI("users", { username, password });
       },
       signupAdmin(username, password) {
-        return submitToAPI("user", { username, password, admin: true });
+        return submitToAPI("users", { username, password, admin: true });
       }
     }
   );

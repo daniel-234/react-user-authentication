@@ -19,7 +19,7 @@ class NewInstructor extends Component {
       links: [
         {
           text: "Instructors",
-          navigationLink: "/instructor",
+          navigationLink: "/instructors",
           authentication: true,
           onClickProp: undefined
         },
@@ -61,7 +61,7 @@ class NewInstructor extends Component {
     let { firstname, lastname, company } = instructor;
     if (firstname && lastname && company) {
       authService().newInstructorSubmit(firstname, lastname, company);
-      navigate("../instructor");
+      navigate("../instructors");
     }
     return undefined;
   };

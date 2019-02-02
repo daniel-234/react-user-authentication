@@ -12,8 +12,8 @@ const App = () => {
       <Home path="/" />
       <Login path="/login" />
       <Profile path="/profile" />
-      <Instructor path="/instructor" />
-      <NewInstructor path="/instructor/new" />
+      <Instructor path="/instructors" />
+      <NewInstructor path="/instructors/new" />
     </Router>
   );
 };

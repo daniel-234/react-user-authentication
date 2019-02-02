@@ -25,7 +25,7 @@ class Home extends Component {
         },
         {
           text: "Instructors",
-          navigationLink: "/instructor",
+          navigationLink: "/instructors",
           authentication: true,
           onClickProp: undefined
         },

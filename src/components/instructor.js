@@ -50,7 +50,7 @@ class Instructor extends Component {
       ]
     });
     authService()
-      .getResources("instructor")
+      .getResources("instructors")
       .then(data => this.setState({ instructors: data }));
   }
 
@@ -70,7 +70,7 @@ class Instructor extends Component {
      * Navigate programmatically to a new page with a special form
      * to add an instructor.
      */
-    navigate("/instructor/new");
+    navigate("/instructors/new");
   };
 
   render() {
