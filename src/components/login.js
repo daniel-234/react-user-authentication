@@ -67,11 +67,23 @@ class Login extends Component {
     if (username && password) {
       authService()
         .signin(username, password)
-        .then(result => {
+        // The signin was successful, so we get back a fulfilled Promise.
+        .then(function(result) {
           // Call the authorization service utility to finish authentication.
           authService().finishAuthentication(result.token);
           // Navigate programmatically to the Home page.
           navigate("/");
+        })
+        // The signin wasn't successful, so we get back a rejected Promise, with a reason.
+        .catch(function(reason) {
+          // Return the Promise.
+          return (
+            reason
+              // Get the value from the resolution of the rejected Promise.
+              .then(function(message) {
+                console.log(message);
+              })
+          );
         });
     }
   };

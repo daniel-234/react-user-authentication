@@ -1,0 +1,67 @@
+[1mdiff --git a/src/components/login.js b/src/components/login.js[m
+[1mindex f591aac..29f5660 100644[m
+[1m--- a/src/components/login.js[m
+[1m+++ b/src/components/login.js[m
+[36m@@ -67,12 +67,27 @@[m [mclass Login extends Component {[m
+     if (username && password) {[m
+       authService()[m
+         .signin(username, password)[m
+[31m-        .then(result => {[m
+[31m-          // Call the authorization service utility to finish authentication.[m
+[31m-          authService().finishAuthentication(result.token);[m
+[31m-          // Navigate programmatically to the Home page.[m
+[31m-          navigate("/");[m
+[32m+[m[32m        .then(function(data) {[m
+[32m+[m[32m          console.log(data);[m
+[32m+[m[32m          return data;[m
+[32m+[m[32m        })[m
+[32m+[m[41m        [m
+[32m+[m[32m        // => {[m
+[32m+[m
+[32m+[m[32m        //   return result;[m
+[32m+[m[32m          // // Call the authorization service utility to finish authentication.[m
+[32m+[m[32m          // authService().finishAuthentication(result.token);[m
+[32m+[m[32m          // // Navigate programmatically to the Home page.[m
+[32m+[m[32m          // navigate("/");[m
+[32m+[m[32m        // })[m
+[32m+[m[32m        // .catch(result => result.json().then(err => console.log(err)))[m
+[32m+[m[32m        .catch(function(reason) {[m
+[32m+[m[32m          // console.log(reason);[m
+[32m+[m[32m          return reason.then(function(message) {[m
+[32m+[m[32m            console.log('Message: ' + message);[m
+[32m+[m[32m          });[m[41m [m
+         });[m
+[32m+[m[41m        [m
+     }[m
+   };[m
+ [m
+[1mdiff --git a/src/utils/auth-service.js b/src/utils/auth-service.js[m
+[1mindex 10ed46f..cf0f3ad 100644[m
+[1m--- a/src/utils/auth-service.js[m
+[1m+++ b/src/utils/auth-service.js[m
+[36m@@ -47,7 +47,24 @@[m [mlet authService = () => {[m
+     return fetch(url, {[m
+       headers,[m
+       ...options[m
+[31m-    }).then(response => response.json());[m
+[32m+[m[32m    }).then(function(response) {[m
+[32m+[m[32m        // return response.text();[m
+[32m+[m[32m      if (response.ok) {[m
+[32m+[m[32m        return response.json();[m
+[32m+[m[32m      }[m
+[32m+[m[32m      // return response.text();[m
+[32m+[m[32m      return Promise.reject(response.text())[m
+[32m+[m[32m        // message: response.text()[m
+[32m+[m[32m      // })[m
+[32m+[m[32m    })[m
+[32m+[m[32m      // .catch(function(error) {[m
+[32m+[m[32m      //   return error;[m
+[32m+[m[32m      // })[m
+[32m+[m[32m      // => Object.keys(err));[m
+[32m+[m[32m    // });[m
+[32m+[m[41m    [m
+[32m+[m[41m    [m
+[32m+[m[41m   [m
+   }[m
+ [m
+   /*[m

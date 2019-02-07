@@ -123,3 +123,14 @@ This project is intended for learning purposes only. Much of it will reproduce c
 
   #### Node, Webpack (or a bundler in general), paths to CSS files and MIME type checker activated
 - [Stackoverflow - Stylesheet not loaded because of MIME-type](https://stackoverflow.com/questions/48248832/stylesheet-not-loaded-because-of-mime-type)
+
+  #### Web APIs
+- [MDN Fetch API -> Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- [MDN Response Body -> Body.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)
+- [MDN Response Body -> Body.text()](https://developer.mozilla.org/en-US/docs/Web/API/Body/text)
+
+  #### Fetch and Promises
+- [Stackoverflow - How do I access previous Promise results in a then chain](https://stackoverflow.com/questions/28250680/how-do-i-access-previous-promise-results-in-a-then-chain/28250697#28250697)
+- [Stackoverflow - What is the correct terminology for JavaScript Promises](https://stackoverflow.com/questions/29268569/what-is-the-correct-terminology-for-javascript-promises/29269515#29269515)
+- [Stackoverflow - How to return from a Promise catch-then block](https://stackoverflow.com/questions/32032588/how-to-return-from-a-promises-catch-then-block/32049994)
+- [Stackoverflow - Why does JSON return a Promise](https://stackoverflow.com/questions/37555031/why-does-json-return-a-promise)

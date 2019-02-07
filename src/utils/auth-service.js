@@ -47,7 +47,15 @@ let authService = () => {
     return fetch(url, {
       headers,
       ...options
-    }).then(response => response.json());
+    }).then(function(response) {
+      // Check that the fetch was successful.
+      // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful
+      if (response.ok) {
+        return response.json();
+      }
+      // Otherwise return a Promise object that is rejected with a given reason.
+      return Promise.reject(response.text());
+    });
   }
 
   /*
