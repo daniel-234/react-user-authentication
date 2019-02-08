@@ -48,12 +48,13 @@ let authService = () => {
       headers,
       ...options
     }).then(function(response) {
-      // Check that the fetch was successful.
+      // Check that the fetch was successful and parse the body text as JSON..
       // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful
       if (response.ok) {
         return response.json();
       }
-      // Otherwise return a Promise object that is rejected with a given reason.
+      // Otherwise return a Promise object that is rejected with a given reason,
+      // that is a text object with an error message sent by the server.
       return Promise.reject(response.text());
     });
   }

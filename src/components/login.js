@@ -17,6 +17,7 @@ class Login extends Component {
   initialState = {
     username: "",
     password: "",
+    usernameErrorMessage: "",
     activeTab: "1"
   };
 
@@ -28,6 +29,20 @@ class Login extends Component {
         activeTab: tab
       });
     }
+  };
+
+  /*
+   * Update the state with the given error message for the username input field in the login tab.
+   */
+  updateLoginUsernameErrorMessage = message => {
+    this.setState(
+      {
+        usernameErrorMessage: message
+      },
+      () => {
+        console.log("State: " + this.state.usernameErrorMessage);
+      }
+    );
   };
 
   /*
@@ -68,20 +83,24 @@ class Login extends Component {
       authService()
         .signin(username, password)
         // The signin was successful, so we get back a fulfilled Promise.
-        .then(function(result) {
+        .then(result => {
           // Call the authorization service utility to finish authentication.
           authService().finishAuthentication(result.token);
           // Navigate programmatically to the Home page.
           navigate("/");
+          // Pass an empty string to update the state (and hide an error message, if one was shown).
+          return this.updateLoginUsernameErrorMessage("");
         })
         // The signin wasn't successful, so we get back a rejected Promise, with a reason.
-        .catch(function(reason) {
-          // Return the Promise.
+        .catch(reason => {
+          // Return a (fresh) fulfilled Promise.
           return (
             reason
-              // Get the value from the resolution of the rejected Promise.
-              .then(function(message) {
-                console.log(message);
+              // Get the value from the resolution of the new Promise.
+              // .then(message => this.receiveUsernameErrorMessage(message))
+              .then(message => {
+                // Pass message to update the state and show the error message.
+                return this.updateUsernameErrorMessage(message);
               })
           );
         });
@@ -124,6 +143,7 @@ class Login extends Component {
               <FormComponent
                 id="signin-form"
                 inputs={["username", "password"]}
+                errors={[this.state.usernameErrorMessage, ""]}
                 onSubmit={this.onSigninSubmit}
               />
             </TabPane>
@@ -131,6 +151,7 @@ class Login extends Component {
               <FormComponent
                 id="signup-form"
                 inputs={["username", "password"]}
+                errors={["", ""]}
                 onSubmit={this.onSignupSubmit}
               />
             </TabPane>

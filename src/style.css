@@ -93,3 +93,7 @@ body > #root > div {
 .list-text {
   font-size: 1.2em;
 }
+
+.form-error-color {
+  color: red;
+}

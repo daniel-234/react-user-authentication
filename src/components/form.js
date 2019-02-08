@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Button } from "reactstrap";
 import InputGroup from "./input-group";
 
-function FormComponent({ onSubmit, inputs }) {
+function FormComponent({ onSubmit, inputs, errors }) {
   return (
     <Form
       className="form"
@@ -27,6 +27,7 @@ function FormComponent({ onSubmit, inputs }) {
           name={`${input}`}
           id={`form-${input}`}
           placeholder={input}
+          errorMessage={errors[index]}
         />
       ))}
       <Button type="submit">Submit</Button>
