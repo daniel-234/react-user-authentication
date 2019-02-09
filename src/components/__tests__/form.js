@@ -22,6 +22,7 @@ test("calls onSubmit with username and password when submitted", () => {
     <Form
       id="signin-form"
       inputs={["username", "password"]}
+      errors={["", ""]}
       onSubmit={handleSubmit}
     />,
     container
@@ -56,12 +57,9 @@ describe("A Signup form", () => {
   // Unmount React trees that were mounted with `render`.
   afterEach(cleanup);
 
-  test("calls onSubmit with email, username and password when submitted", () => {
+  test("calls onSubmit with username and password when submitted", () => {
     let fakeUser = {
       username: "newguy",
-      // TODO
-      // Refactor Form component to accept an email for signup
-      // email: 'new-guy@new-guy.com',
       password: "that-s-new"
     };
 
@@ -70,14 +68,14 @@ describe("A Signup form", () => {
     let { getByLabelText, getByText } = render(
       <Form
         id="signup-form"
-        inputs={["username", "email", "password"]}
+        inputs={["username", "password"]}
+        errors={["", ""]}
         onSubmit={handleSubmit}
       />
     );
 
     let usernameNode = getByLabelText("Username");
     let passwordNode = getByLabelText("Password");
-    let emailNode = getByLabelText("Email");
 
     /*
      * Valid alternatives here:
@@ -90,7 +88,6 @@ describe("A Signup form", () => {
      */
 
     usernameNode.value = fakeUser.username;
-    emailNode.value = fakeUser.email;
     passwordNode.value = fakeUser.password;
 
     getByText("Submit").click();
