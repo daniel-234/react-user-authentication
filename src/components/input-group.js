@@ -15,7 +15,7 @@ function InputGroup(props) {
         id={props.id}
         placeholder={props.placeholder}
       />
-      {errorMessage && errorMessage.length ? (
+      {errorMessage.length ? (
         <div className="form-error-color">{props.errorMessage}</div>
       ) : null}
     </FormGroup>

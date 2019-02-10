@@ -17,7 +17,8 @@ class Login extends Component {
   initialState = {
     username: "",
     password: "",
-    usernameErrorMessage: "",
+    usernameLoginErrorMessage: "",
+    passwordLoginErrorMessage: "",
     activeTab: "1"
   };
 
@@ -32,17 +33,19 @@ class Login extends Component {
   };
 
   /*
-   * Update the state with the given error message for the username input field in the login tab.
+   * Update the state with the given error message in the login tab, depending
+   * on which string value it has assigned (the server can either return an error 
+   * for a wrong password, if the username is registered in the database, or for
+   * a username not yet saved).
    */
-  updateLoginUsernameErrorMessage = message => {
-    this.setState(
-      {
-        usernameErrorMessage: message
-      },
-      () => {
-        console.log("State: " + this.state.usernameErrorMessage);
-      }
-    );
+  updateLoginErrorMessage = message => {
+    message === "Wrong password"
+      ? this.setState({
+          passwordLoginErrorMessage: message
+        })
+      : this.setState({
+          usernameLoginErrorMessage: message
+        });
   };
 
   /*
@@ -75,6 +78,8 @@ class Login extends Component {
    * the state of the component and call the API to authenticate the user.
    */
   onSigninSubmit = user => {
+    // Merge user with initial state. Reset state fields that are not part
+    // of user back to their initial state (used to reset error messages).
     let newState = { ...this.initialState, ...user };
     this.setState(newState);
 
@@ -88,8 +93,6 @@ class Login extends Component {
           authService().finishAuthentication(result.token);
           // Navigate programmatically to the Home page.
           navigate("/");
-          // Pass an empty string to update the state (and hide an error message, if one was shown).
-          return this.updateLoginUsernameErrorMessage("");
         })
         // The signin wasn't successful, so we get back a rejected Promise, with a reason.
         .catch(reason => {
@@ -100,7 +103,7 @@ class Login extends Component {
               // .then(message => this.receiveUsernameErrorMessage(message))
               .then(message => {
                 // Pass message to update the state and show the error message.
-                return this.updateUsernameErrorMessage(message);
+                return this.updateLoginErrorMessage(message);
               })
           );
         });
@@ -143,7 +146,10 @@ class Login extends Component {
               <FormComponent
                 id="signin-form"
                 inputs={["username", "password"]}
-                errors={[this.state.usernameErrorMessage, ""]}
+                errors={[
+                  this.state.usernameLoginErrorMessage,
+                  this.state.passwordLoginErrorMessage
+                ]}
                 onSubmit={this.onSigninSubmit}
               />
             </TabPane>
