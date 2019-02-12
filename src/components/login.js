@@ -17,6 +17,7 @@ class Login extends Component {
   initialState = {
     username: "",
     password: "",
+    usernameSignupErrorMessage: "",
     usernameLoginErrorMessage: "",
     passwordLoginErrorMessage: "",
     activeTab: "1"
@@ -33,10 +34,17 @@ class Login extends Component {
   };
 
   /*
+   * Update the state with the given error message in the signup tab.
+   */
+  updateSignupErrorMessage = message => {
+    this.setState({
+      usernameSignupErrorMessage: message
+    });
+  };
+
+  /*
    * Update the state with the given error message in the login tab, depending
-   * on which string value it has assigned (the server can either return an error 
-   * for a wrong password, if the username is registered in the database, or for
-   * a username not yet saved).
+   * on which string value it has been assigned.
    */
   updateLoginErrorMessage = message => {
     message === "Wrong password"
@@ -53,7 +61,11 @@ class Login extends Component {
    * the state of the component and call the API to register the user.
    */
   onSignupSubmit = user => {
-    let newState = { ...this.initialState, ...user };
+    // Merge user with initial state. Reset state fields that are not part
+    // of user back to their initial state (used to reset error messages).
+    // Merge activeTab set to 2 to keep the user in the Signup Tab.
+    let activeTab = "2";
+    let newState = { ...this.initialState, ...user, activeTab };
     this.setState(newState);
 
     let { username, password } = user;
@@ -69,6 +81,18 @@ class Login extends Component {
           authService().finishAuthentication(result.token);
           // Navigate programmatically to the Home page.
           navigate("/");
+        })
+        // The signin wasn't successful, so we get back a rejected Promise, with a reason.
+        .catch(reason => {
+          // Return a (fresh) fulfilled Promise.
+          return (
+            reason
+              // Get the value from the resolution of the new Promise.
+              .then(message => {
+                // Pass message to update the state and show the error message.
+                return this.updateSignupErrorMessage(message);
+              })
+          );
         });
     }
   };
@@ -100,7 +124,6 @@ class Login extends Component {
           return (
             reason
               // Get the value from the resolution of the new Promise.
-              // .then(message => this.receiveUsernameErrorMessage(message))
               .then(message => {
                 // Pass message to update the state and show the error message.
                 return this.updateLoginErrorMessage(message);
@@ -157,7 +180,7 @@ class Login extends Component {
               <FormComponent
                 id="signup-form"
                 inputs={["username", "password"]}
-                errors={["", ""]}
+                errors={[this.state.usernameSignupErrorMessage, ""]}
                 onSubmit={this.onSignupSubmit}
               />
             </TabPane>
