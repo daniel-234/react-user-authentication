@@ -1,5 +1,6 @@
 import React from "react";
-import { FormGroup, Label, Input } from "reactstrap";
+import { FormGroup, Input } from "reactstrap";
+import Label from "./label";
 
 function InputGroup(props) {
   console.log("Inside input group: " + props.errorMessage);
