@@ -25,6 +25,9 @@ class Login extends Component {
 
   state = this.initialState;
 
+  /*
+   * Set input tab as active.
+   */
   toggle = tab => {
     if (this.state.activeTab !== tab) {
       this.setState({
@@ -57,18 +60,9 @@ class Login extends Component {
   };
 
   /*
-   * Take a user object with `username` and `password` fields, update 
-   * the state of the component and call the API to register the user.
+   * Call the API to signup a user.
    */
-  onSignupSubmit = user => {
-    // Merge user with initial state. Reset state fields that are not part
-    // of user back to their initial state (used to reset error messages).
-    // Merge activeTab set to 2 to keep the user in the Signup Tab.
-    let activeTab = "2";
-    let newState = { ...this.initialState, ...user, activeTab };
-    this.setState(newState);
-
-    let { username, password } = user;
+  signup = ({ username, password }) => {
     if (username && password) {
       authService()
         // To sign up a user with admin scope, you will need a little hack here.
@@ -98,16 +92,9 @@ class Login extends Component {
   };
 
   /*
-   * Take a user object with `username` and `password` fields, update
-   * the state of the component and call the API to authenticate the user.
+   * Call the API to login a user.
    */
-  onSigninSubmit = user => {
-    // Merge user with initial state. Reset state fields that are not part
-    // of user back to their initial state (used to reset error messages).
-    let newState = { ...this.initialState, ...user };
-    this.setState(newState);
-
-    let { username, password } = user;
+  signin = ({ username, password }) => {
     if (username && password) {
       authService()
         .signin(username, password)
@@ -131,6 +118,34 @@ class Login extends Component {
           );
         });
     }
+  };
+
+  /*
+   * Take a user object with `username` and `password` fields 
+   * and update the state of the component.
+   */
+  onSignupSubmit = user => {
+    // Merge user with initial state. Reset state fields that are not part
+    // of user back to their initial state (used to reset error messages).
+    // Merge activeTab set to 2 to keep the user in the Signup Tab.
+    let activeTab = "2";
+    let newState = { ...this.initialState, ...user, activeTab };
+    this.setState(newState, () => {
+      this.signup(this.state);
+    });
+  };
+
+  /*
+   * Take a user object with `username` and `password` fields
+   * and update the state of the component.
+   */
+  onSigninSubmit = user => {
+    // Merge user with initial state. Reset state fields that are not part
+    // of user back to their initial state (used to reset error messages).
+    let newState = { ...this.initialState, ...user };
+    this.setState(newState, () => {
+      this.signin(this.state);
+    });
   };
 
   render() {
