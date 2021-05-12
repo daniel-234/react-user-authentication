@@ -60,7 +60,7 @@
     "@reach/router": "^1.2.1",
     "bootstrap": "^4.3.1",
     "jwt-decode": "^2.2.0",
-    "merge": ">=1.2.1",
+    "merge": ">=2.1.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.12",
